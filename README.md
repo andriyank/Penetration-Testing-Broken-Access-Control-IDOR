@@ -50,8 +50,15 @@ SafeLine's upstream (**Applications → Test Web Demo → Basic**) was re-pointe
 1. Logout: http://127.0.0.1:8080/logout.php
 2. Direct access without login: http://127.0.0.1:8080/vulnerabilities/exec/
 ```
+<p align="center">
+  <img src="images/broken-access-control-test.png" alt="broken access control attack ">
+</p>
 
 **Result:** The request was automatically redirected back to `login.php`. DVWA enforces a session check (`authenticated`) on every module page, so unauthenticated access was successfully prevented by the application itself (not by the WAF).
+
+<p align="center">
+  <img src="images/broken-access-control-result.png" alt="broken access control result ">
+</p>
 
 **Conclusion:** ✅ Not Vulnerable — function-level access control works correctly.
 
@@ -67,7 +74,6 @@ http://127.0.0.1:8080/vulnerabilities/sqli/?id=1&Submit=Submit
 http://127.0.0.1:8080/vulnerabilities/sqli/?id=2&Submit=Submit
 http://127.0.0.1:8080/vulnerabilities/sqli/?id=3&Submit=Submit
 ```
-
 **Result:**
 
 | Request | Data Returned |
@@ -76,6 +82,17 @@ http://127.0.0.1:8080/vulnerabilities/sqli/?id=3&Submit=Submit
 | `id=2` | First name: `Gordon`, Surname: `Brown` |
 | `id=3` | First name: `Hack`, Surname: `Me` |
 
+<p align="center">
+  <img src="images/idor-attack-1.png" alt="Idor attack 1">
+</p>
+
+<p align="center">
+  <img src="images/idor-attack-2.png" alt="Idor attack 2">
+</p>
+
+<p align="center">
+  <img src="images/idor-attack-2.png" alt="Idor attack 2">
+</p>
 Even though the request was sent by the `admin` session, the application returned other users' data based purely on the numeric `id` in the URL parameter — **with no check on whether that `id` actually belongs to the logged-in user.**
 
 **Conclusion:** ❌ **Vulnerable — IDOR / Broken Access Control (CWE-639)**. Object references (`id`) are direct, sequential/guessable, and ownership is never verified server-side.
