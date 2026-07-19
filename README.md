@@ -91,7 +91,7 @@ http://127.0.0.1:8080/vulnerabilities/sqli/?id=3&Submit=Submit
 </p>
 
 <p align="center">
-  <img src="images/idor-attack-2.png" alt="Idor attack 2">
+  <img src="images/idor-attack-3.png" alt="Idor attack 2">
 </p>
 Even though the request was sent by the `admin` session, the application returned other users' data based purely on the numeric `id` in the URL parameter — **with no check on whether that `id` actually belongs to the logged-in user.**
 
