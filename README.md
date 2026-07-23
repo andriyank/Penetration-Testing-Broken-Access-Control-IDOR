@@ -1,5 +1,20 @@
 ## 🎯 Penetration Testing — Broken Access Control / IDOR
 
+Authenticated black-box/grey-box penetration test evaluating whether a signature-based WAF (SafeLine) can detect and stop **Broken Access Control** vulnerabilities — specifically **Insecure Direct Object Reference (IDOR)** — on a deliberately vulnerable target (DVWA).
+ 
+## 📋 Executive Summary
+ 
+Two scenarios were tested against OWASP Top 10 **A01:2021 — Broken Access Control**:
+ 
+| Test | Result |
+|---|---|
+| **Forced Browsing** (unauthenticated access to a protected module) | ✅ **Not Vulnerable** — blocked by the application's own session check |
+| **IDOR** (accessing other users' data via a numeric `id` parameter) | ❌ **Vulnerable** — `admin` session could read other users' data by simply changing `?id=1` → `?id=2` → `?id=3`, with no server-side ownership check |
+ 
+The WAF did **not** detect or block the IDOR requests — every request was syntactically valid HTTP traffic with no attack-pattern signature to match. This confirms a well-known limitation: **signature-based WAFs cannot detect business-logic flaws like IDOR**, since the vulnerability lies in missing authorization logic, not in the shape of the request.
+ 
+**Overall Risk Rating:** High
+**WAF detection rate on the confirmed finding:** 0%
 ### 📋 Table of Contents
 
 [#-table-of-contents](#-table-of-contents)
@@ -148,6 +163,12 @@ SafeLine WAF, like most signature-based WAFs, works by matching request **patter
 | **IDOR / Broken Access Control** | ❌ **Not Detected / Not Prevented** | *(out of WAF scope — requires application-level code fixes)* |
 
 ---
+
+## 📄 Full Report
+ 
+The complete report — including scope, methodology (OWASP WSTG), CVSS scoring, attack narrative, and strategic recommendations — is available here:
+ 
+📥 [**Pentest_Report_Broken_Access_Control_IDOR.pdf**](docs/Pentest_Report_Broken_Access_Control_IDOR.pdf)
 
 ### 📚 References
 
