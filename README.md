@@ -1,5 +1,7 @@
 ## 🎯 Penetration Testing — Broken Access Control / IDOR
 
+[![GitHub release](https://img.shields.io/github/v/release/andriyank/Penetration-Testing-Broken-Access-Control-IDOR)](https://github.com/andriyank/Penetration-Testing-Broken-Access-Control-IDOR/releases/tag/v1.0)
+
 Authenticated black-box/grey-box penetration test evaluating whether a signature-based WAF (SafeLine) can detect and stop **Broken Access Control** vulnerabilities — specifically **Insecure Direct Object Reference (IDOR)** — on a deliberately vulnerable target (DVWA).
  
 ## 📋 Executive Summary
@@ -168,7 +170,8 @@ SafeLine WAF, like most signature-based WAFs, works by matching request **patter
  
 The complete report — including scope, methodology (OWASP WSTG), CVSS scoring, attack narrative, and strategic recommendations — is available here:
  
-📥 [**Pentest_Report_Broken_Access_Control_IDOR.pdf**](docs/Pentest_Report_Broken_Access_Control_IDOR.pdf)
+📥 [**Pentest_Report_Broken_Access_Control_IDOR.pdf**](docs/Pentest_Report_Broken_Access_Control_IDOR.pdf) — view in repo
+📦 [**Download from Releases (v1.0)**](https://github.com/andriyank/Penetration-Testing-Broken-Access-Control-IDOR/releases/download/v1.0/Pentest_Report_Broken_Access_Control_IDOR.pdf) — direct download link
 
 ### 📚 References
 
