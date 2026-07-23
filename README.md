@@ -19,8 +19,6 @@ The WAF did **not** detect or block the IDOR requests — every request was synt
 **WAF detection rate on the confirmed finding:** 0%
 ### 📋 Table of Contents
 
-[#-table-of-contents](#-table-of-contents)
-
 - [Additional Setup: DVWA as Target](#additional-setup-dvwa-as-target)
 - [Scenario 1 — Forced Browsing](#scenario-1--forced-browsing-missing-function-level-access-control)
 - [Scenario 2 — IDOR](#scenario-2--idor-insecure-direct-object-reference)
