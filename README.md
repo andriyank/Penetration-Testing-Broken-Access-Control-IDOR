@@ -27,6 +27,7 @@ The WAF did **not** detect or block the IDOR requests — every request was synt
 - [WAF Detection Verification](#waf-detection-verification)
 - [Analysis](#-analysis)
 - [Updated Test Results Table](#-updated-test-results-table)
+- [Full Report](#-full-report)
 - [References](#-references)
 
 ---
